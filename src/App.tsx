@@ -1,18 +1,19 @@
 import { HashRouter, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
-import HomePage from "./pages/HomePage";
+import CssBaseline from "@mui/material/CssBaseline";
+import StyledHeader from "./components/StyledHeader";
 import DetailsPage from "./pages/DetailsPage";
+import HomePage from "./pages/HomePage";
 import { routes } from "./routes";
-import GlobalStyle from "./styles/GlobalStyle";
+import { Grid } from "@mui/material";
 
 const App: React.FC = (): JSX.Element => {
   return (
     <HashRouter>
       <>
-        <GlobalStyle />
-        <Header>SDH Frontend homework</Header>
+        <CssBaseline />
+        <StyledHeader>SDH Frontend homework</StyledHeader>
 
-        <main>
+        <Grid container sx={{ mt: 2 }}>
           <Switch>
             <Route exact={true} path={routes.home}>
               <HomePage />
@@ -21,7 +22,7 @@ const App: React.FC = (): JSX.Element => {
               <DetailsPage />
             </Route>
           </Switch>
-        </main>
+        </Grid>
       </>
     </HashRouter>
   );
